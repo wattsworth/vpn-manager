@@ -1,0 +1,37 @@
+<%= form_with(model: device, local: true) do |form| %>
+  <% if device.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <b><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</b>
+      <ul class="mb-0">
+        <% device.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :hostname %>
+    <%= form.text_field :hostname, class: ['form-control'] %>
+  </div>
+  <div class="form-group">
+    <%= form.label :public_key, "Public Key" %>
+    <%= form.text_field :public_key, class: ['form-control'] %>
+  </div>
+  <div class="form-group">
+    <%= form.label :vpn_ip_address, "VPN IP Address" %>
+    <%= form.text_field :vpn_ip_address, class: ['form-control'] %>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <%= form.check_box :enabled, class: ['form-check-input'] %>
+      <%= form.label :enabled, "Allow device to connect?", class: ['form-check-label'] %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit class: ['btn btn-primary']%>
+    <%= link_to 'Cancel', devices_path, class: ['btn btn-secondary'] %>
+  </div>
+<% end %>

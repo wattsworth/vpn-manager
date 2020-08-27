@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <%= render 'layouts/navbar', page: "groups" %>
+  <%= render 'layouts/notice', notice: notice %>
+
+  <h1>Group Information</h1>
+
+  <table class="table">
+    <tbody>
+    <tr><td><b>Name</b></td><td><%= @group.name%></td></tr>
+    <tr><td class="mr-2'"><b>Description</b></td><td><%= @group.description%></td></tr>
+    </tbody>
+  </table>
+    <%= link_to 'Edit Group', edit_group_path(@group), class: 'btn btn-outline-primary' %>
+    <hr/>
+  <% if @group.devices.empty? %>
+    <div class="alert alert-warning">No devices in group</div>
+  <% else %>
+    <table>
+    <tbody>
+    <tr><td><b>Devices</b></td></tr>
+    <% @group.devices.each do |device| %>
+      <tr>
+        <td></td>
+        <td><%= device.hostname %></td>
+        <td><%= form_with url: remove_group_path(@group.id), method: :delete do%>
+            <input type=hidden name="device" value="<%= device.id %>">
+            <%= submit_tag "Remove", class: "btn btn-link"%>
+          <% end %></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+    <% end %>
+  <%= form_with url: add_group_path, class: "form-inline" do %>
+    <%= submit_tag "Add Device", class: "btn btn-outline-primary mb-2" %>
+    <div class="form-group mb-2">
+      <%= select_tag "device",
+                     options_from_collection_for_select(@addable_devices, "id", "hostname"),
+      class: "form-control"%>
+    </div>
+  <% end %>
+  <hr/>
+
+</div>

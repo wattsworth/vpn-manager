@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.ipstack.com/118.31.19.9?access_key=test_api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 02 Sep 2020 02:06:41 GMT
+      Content-Type:
+      - application/json; Charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d96790a9c4aad834014fa916451a40c121599012401; expires=Fri, 02-Oct-20
+        02:06:41 GMT; path=/; domain=.ipstack.com; HttpOnly; SameSite=Lax
+      X-Apilayer-Transaction-Id:
+      - 51a4c515-d564-46f7-8351-dd32a811b2df
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Request-Time:
+      - '0.016'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04ee2a0a580000098cd297e200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5cc3ac56fb08098c-IAD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ip":"118.31.19.9","type":"ipv4","continent_code":"AS","continent_name":"Asia","country_code":"CN","country_name":"China","region_code":"ZJ","region_name":"Zhejiang","city":"Hangzhou","zip":"310000","latitude":30.235559463500977,"longitude":120.15888977050781,"location":{"geoname_id":1808926,"capital":"Beijing","languages":[{"code":"zh","name":"Chinese","native":"\u4e2d\u6587"}],"country_flag":"http:\/\/assets.ipstack.com\/flags\/cn.svg","country_flag_emoji":"\ud83c\udde8\ud83c\uddf3","country_flag_emoji_unicode":"U+1F1E8
+        U+1F1F3","calling_code":"86","is_eu":false}}'
+  recorded_at: Wed, 02 Sep 2020 02:06:41 GMT
+- request:
+    method: get
+    uri: http://api.ipstack.com/98.43.123.19?access_key=test_api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 02 Sep 2020 02:06:42 GMT
+      Content-Type:
+      - application/json; Charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de307006b8e1ef900894e5429178331741599012401; expires=Fri, 02-Oct-20
+        02:06:41 GMT; path=/; domain=.ipstack.com; HttpOnly; SameSite=Lax
+      X-Apilayer-Transaction-Id:
+      - 9654b4dc-7fe1-45c6-be67-968ca517e47f
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Request-Time:
+      - '0.025'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04ee2a0b3b0000cefca8a15200000001
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5cc3ac585869cefc-IAD
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ip":"98.43.123.19","type":"ipv4","continent_code":"NA","continent_name":"North
+        America","country_code":"US","country_name":"United States","region_code":"NY","region_name":"New
+        York","city":"Manhattan","zip":"10020","latitude":40.7589111328125,"longitude":-73.97901916503906,"location":{"geoname_id":5125771,"capital":"Washington
+        D.C.","languages":[{"code":"en","name":"English","native":"English"}],"country_flag":"http:\/\/assets.ipstack.com\/flags\/us.svg","country_flag_emoji":"\ud83c\uddfa\ud83c\uddf8","country_flag_emoji_unicode":"U+1F1FA
+        U+1F1F8","calling_code":"1","is_eu":false}}'
+  recorded_at: Wed, 02 Sep 2020 02:06:41 GMT
+recorded_with: VCR 6.0.0

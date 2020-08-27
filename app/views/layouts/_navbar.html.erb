@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">VPN Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' if page=='devices' %>">
+        <a class="nav-link" href="<%= devices_url %>">Devices <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item <%= 'active' if page=='groups' %>">
+        <a class="nav-link" href="<%= groups_url %>">Groups <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete  %>
+      </li>
+    </ul>
+  </div>
+</nav>

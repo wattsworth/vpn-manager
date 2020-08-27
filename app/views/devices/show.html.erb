@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <%= render 'layouts/navbar', page: "devices" %>
+  <%= render 'layouts/notice', notice: notice %>
+
+  <h1>Device Information</h1>
+  <% if @device.host_ip_address.nil? %>
+    <div class="alert alert-warning">Device is not connected</div>
+  <% end %>
+  <dl class="row">
+    <dt class="col-md-3 col-sm-4 col-lg-2">Hostname</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><%= @device.hostname %></dd>
+    <dt class="col-md-3 col-sm-4 col-lg-2">Groups</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10">
+      <% if @device.groups.empty? %><i>none</i>
+        <% else %>
+        <%= @device.groups.map(&:name).join(", ") %>
+        <% end %>
+    </dd>
+    <dt class="col-md-3 col-sm-4 col-lg-2">Public Key</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><%= @device.public_key %></dd>
+    <dt class="col-md-3 col-sm-4 col-lg-2">VPN IP Address</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><%= @device.vpn_ip_address %></dd>
+    <dt class="col-md-3 col-sm-4 col-lg-2">Enabled</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><%= @device.enabled? ? 'yes':'no' %></dd>
+    <% if @device.enabled? %>
+      <dt class="col-md-3 col-sm-4 col-lg-2">Lastest Handshake</dt>
+      <dd class="col-md-9 col-sm-8 col-lg-10"><%= format_time(@device.latest_handshake) %></dd>
+    <%end %>
+    <% unless @device.host_ip_address.nil? %>
+    <dt class="col-md-3 col-sm-4 col-lg-2">Host IP Address</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><%= @device.host_ip_address %>
+    <dt class="col-md-3 col-sm-4 col-lg-2">Location</dt>
+    <dd class="col-md-9 col-sm-8 col-lg-10"><img style="width: 25px", src="<%=@device.location_flag %>"> <%=@device.location %></dd>
+    <% end %>
+  </dl>
+  <% unless @device.latitude.nil? or @device.longitude.nil? %>
+  <a href="https://www.google.com/maps?q=<%="#{@device.latitude},#{@device.longitude}" %>" target="_"
+  class="btn btn-outline-primary">View on Google Maps  <%= icon('fas', 'external-link-alt') %></a>
+  <% end %>
+  <td><%= link_to 'Edit', edit_device_path(@device), class: 'btn btn-outline-primary' %></td>
+
+</div>

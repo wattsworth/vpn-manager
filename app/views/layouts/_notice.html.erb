@@ -1,0 +1,7 @@
+<%if not notice.nil? %>
+  <div id="notice" class="alert alert-<%= notice.include?('Error') ? 'danger' : 'success' %>">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= notice %></div>
+<%end %>

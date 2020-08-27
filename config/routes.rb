@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: "devices#index"
+
+  resources :groups do
+    member do
+      post 'add'
+      delete 'remove'
+    end
+    collection do
+      post 'rebuild'
+    end
+  end
+  resources :devices do
+    collection do
+      post 'rebuild'
+    end
+  end
+  devise_for :users
+
 end
