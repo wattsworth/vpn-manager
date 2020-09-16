@@ -1,4 +1,4 @@
-#VPN Manager
+# VPN Manager
 
 This is a web application to manage a VPN server using 
 Wireguard, Dnsmasq, and Nagios. It automatically generates
